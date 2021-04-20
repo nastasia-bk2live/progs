@@ -1,0 +1,558 @@
+Статья Полякова "Динамическое программирование в задачах обработки последовательностей ЕГЭ по информатике"
+
+задача 1
+#include<iostream>
+#include<string>
+#include <vector>
+#include<math.h>
+#include<cstdlib>
+
+using namespace std;
+
+int main() {
+	int a, n, sum = 0;
+	vector<int> arr;
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		cin >> a;
+		arr.push_back(a);
+	}
+	for (int i = 0; i < n; i++) {
+		sum += arr[i];
+	}
+	cout << sum;
+}
+
+int main() {
+	int a, n, ans = 0;
+	cin >> n;
+	for (int i = 0; i < n; i++){
+		cin >> a;
+		ans += a;
+	}
+	cout << ans;
+}
+задача 2
+#include<iostream>
+#include<string>
+#include <vector>
+#include<math.h>
+#include<cstdlib>
+
+using namespace std;
+
+int main() {
+	int a, n, count = 0;
+	vector<int> arr;
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		cin >> a;
+		arr.push_back(a);
+	}
+	for (int i = 0; i < n; i++) {
+		if (arr[i] < 0) count++;
+	}
+	cout << count;
+}
+
+int main() {
+	int a, n, count = 0;
+	vector<int> arr;
+	cin >> n;
+	cin >> a;
+	if (a<0) arr.push_back(1);
+	else arr.push_back(0);
+	for (int i = 1; i < n; i++) {
+		cin >> a;
+		if (a < 0) 
+			arr.push_back(arr[i-1] + 1);
+		else arr.push_back(arr[i - 1]);
+	}
+	cout << arr[n-1];
+}
+
+ int main() {
+	int a, n, count = 0, sum = 0;
+	float ans = 0;
+	vector<int> arr;
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		cin >> a;
+		if (a < 0) {
+			ans = ((ans * count + a) / (count + 1));
+			count++;
+		}
+	}
+	cout << ans;
+}
+
+int main() {
+	int a, n, count = 0;
+	cin >> n;
+	for (int i = 0; i < n; i++){
+		cin >> a;
+		if (a < 0) count++;
+	}
+	cout << count;
+}
+
+задача 3
+#include<iostream>
+#include<string>
+#include <vector>
+#include<math.h>
+#include<cstdlib>
+
+using namespace std;
+
+int main() {
+	int a, n, count = 0, sum = 0;
+	vector<int> arr;
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		cin >> a;
+			arr.push_back(a);
+	}
+	for (int i = 0; i < n; i++) {
+		if (arr[i] < 0) {
+			count++;
+			sum += arr[i];
+		}
+	}
+	cout << sum / count;
+}
+
+int main() {
+	int a, n, count = 0, sum = 0;
+	float ans = 0;
+	vector<int> arr;
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		cin >> a;
+		if (a < 0) {
+			ans = ((ans * count + a) / (count + 1));
+			count++;
+		}
+	}
+	cout << ans;
+}
+
+int main() {
+	int a, n, count = 0, sum = 0;
+	vector<int> arr;
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		cin >> a;
+		if (a < 0) {
+			count++;
+			sum += a;
+		}
+	}
+	cout << sum / count;
+}
+
+задача 4
+#include<iostream>
+#include<string>
+#include <vector>
+#include<math.h>
+#include<cstdlib>
+
+using namespace std;
+
+int main() {
+	int a, n, count = 0, sum = 0;
+	vector<int> arr;
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		cin >> a;
+		arr.push_back(a);
+	}
+	for (int i = 0; i < n; i++) {
+		for (int j = i +1; j < n; j++) {
+			if ((arr[i] + arr[j]) % 2 == 0) count++;
+		}
+	}
+	cout << count;
+}
+
+int main() {
+	int a, n, a_1 = 0, a_2 = 0, ans = 0;
+	vector<int> arr;
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		cin >> a;
+		if (a % 2 == 0) a_2++;
+		else a_1++;
+	}
+	ans = (a_1 * (a_1 - 1)) / 2 + (a_2 * (a_2 - 1)) / 2;
+	cout << ans;
+}
+
+int main() {
+	int a, n, a_1 = 0, a_2 = 0, ans = 0;
+	vector<int> arr;
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		cin >> a;
+		if (a % 2 == 0) {
+			ans += a_2;
+			a_2++;
+		}
+		else {
+			ans += a_1;
+			a_1++;
+		}
+	}
+	cout << ans;
+}
+
+задача 5
+#include<iostream>
+#include<string>
+#include <vector>
+#include<math.h>
+#include<cstdlib>
+
+using namespace std;
+
+int main() {
+	int a, n, count = 0, sum = 0;
+	vector<int> arr;
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		cin >> a;
+		arr.push_back(a);
+	}
+	for (int i = 0; i < n; i++) {
+		for (int j = i + 1; j < n; j++) {
+			if ((arr[i] + arr[j]) == 20) count++;
+		}
+	}
+	cout << count;
+}
+
+int main() {
+	int a, n, count = 0, sum = 0;
+	cin >> n;
+	vector <int> arr(20 + 1, 0);
+	for (int i = 0; i < n; i++) {
+		cin >> a;
+		if (a <= 20) {
+			count += arr[20 - a];
+			arr[a]++;
+		}
+	}
+	cout << count;
+}
+
+int main() {
+	int a, n, count = 0, sum = 0;
+	cin >> n;
+	vector <int> arr(20 + 1, 0);
+	for (int i = 0; i < n; i++) {
+		cin >> a;
+		if (a <= 20) {
+			arr[a]++;
+		}
+	}
+	for (int i = 0; i < 10; i++){
+			count += arr[i] * arr[20-i];
+	}
+	count += arr[10] * (arr[10] - 1) / 2;
+	cout << count;
+}
+
+задача 6
+int main() {
+	int a, n, count = 0, sum = 0;
+	vector<int> arr;
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		cin >> a;
+		arr.push_back(a);
+	}
+	for (int i = 0; i < n; i++) {
+		for (int j = i + 1; j < n; j++) {
+			if ((arr[i] + arr[j]) <= 20) count++;
+		}
+	}
+	cout << count;
+}
+
+int main() {
+	int a, n, count = 0, sum = 0;
+	cin >> n;
+	vector <int> arr(21, 0);
+	for (int i = 0; i < n; i++) {
+		cin >> a;
+		if (a <= 20) {
+			for (int j = 0; j < 20-a+1; j++){
+				count += arr[j];
+			}
+			arr[a]++;
+		}
+	}
+	cout << count;
+}
+
+задача 7
+int main() {
+	int a, n, count = 0, sum = 0;
+	cin >> n;
+	vector <int> arr(21, 0);
+	for (int i = 0; i < n; i++) {
+		cin >> a;
+		count += i;
+		if (a <= 20) {
+			for (int j = 0; j < 20-a+1; j++){
+				count -= arr[j];
+			}
+			arr[a]++;
+		}
+	}
+	cout << count;
+}
+
+int main() {
+	int a, n, s = 20, count = 0, ans = 0;
+	cin >> n;
+	vector <int> arr(s + 1, 0);
+	for (int i = 0; i < n; i++) {
+		cin >> a;
+		if (a <= 20) {
+			for (int j = 0; j < s - a + 1; j++){
+				count += arr[j];
+			}
+			arr[a]++;
+		}
+	}
+	ans = n * (n - 1) / 2 - count;
+	cout << ans;
+}
+
+int main() {
+	int a, n, count = 0, sum = 0;
+	vector<int> arr;
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		cin >> a;
+		arr.push_back(a);
+	}
+	for (int i = 0; i < n; i++) {
+		for (int j = i + 1; j < n; j++) {
+			if ((arr[i] + arr[j]) > 20) count++;
+		}
+	}
+	cout << count;
+}
+
+задача 8
+int main() {
+	int z1, z2, max, n, s = 17, a;
+	bool flag = false;
+	vector<int> arr;
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		cin >> a;
+		arr.push_back(a);
+	}
+	z1 = arr[0];
+	z2 = arr[1];
+	max= arr[0] + arr[1];
+	for (int i = 0; i < n; i++) {
+		for (int j = i + 1; j < n; j++) {
+			if (((arr[i] % s == 0) || (arr[j] % s == 0)) && (arr[i] + arr[j] > max)) {
+				max = arr[i] + arr[j];
+				z1 = arr[i];
+				z2 = arr[j];
+				flag = true;
+			}
+		}
+	}
+	if (!flag)
+		cout << "00";
+	else
+		cout << z1 << " " << z2;
+}
+
+int main() {
+	int z1 = 0, z2 = 0, maxAll = 0,maxS = 0, n, s = 17, a;
+	bool flag = false;
+	vector<int> arr;
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		cin >> a;
+		if (a % s == 0) {
+			if (maxAll > 0 && maxAll + a > z1 + z2) {
+				z1 = maxAll;
+				z2 = a;
+			}
+			maxS = max(maxS, a);
+		}
+		else 
+			if (maxS > 0 && maxS + a > z1 + z2) {
+				z1 = maxS;
+				z2 = a;
+			}
+		maxAll = max(maxAll, a);
+	}
+	cout << z1 << " " << z2;
+}
+
+int main() {
+	int z1 = 0, z2 = 0, maxAll1 = 0, maxAll2 = 0, maxS = 0, n, s = 17, a;
+	bool flag = false;
+	vector<int> arr;
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		cin >> a;
+		if (a % s == 0 && a > maxS)
+			maxS = a;
+		if (a > maxAll1) {
+			maxAll2 = maxAll1;
+			maxAll1 = a;
+		}
+		else
+			if (a > maxAll2) maxAll2 = a;
+
+	}
+	if (maxAll1 % s != 0 && maxS == 0)
+		cout << "0 0";
+	else
+		if (maxAll1 % s == 0) 
+			cout << maxAll1 << " " << maxAll2;
+		else 
+			cout << maxAll1 << " " << maxS;
+}
+
+задача 9
+#include<iostream>
+#include<string>
+#include <vector>
+#include<math.h>
+#include<cstdlib>
+
+using namespace std;
+
+int main() {
+	int n, a, count = 0;
+	vector<int> arr;
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		cin >> a;
+		arr.push_back(a);
+	}
+	for (int i = 0; i < n; i++) {
+		for (int j = i + 1; j < n; j++) {
+			if ((arr[i] > 80 || arr[j] > 80) && ((arr[i] - arr[j]) % 60 == 0))
+				count++;
+		}
+	}
+	cout << count;
+}
+
+int main() {
+	int n, a, count = 0, r;
+	cin >> n;
+	vector<int> d(n,0);
+	vector<int> g(n, 0);
+	for (int i = 0; i < n; i++) {
+		cin >> a;
+		r = a % 60;
+		if (a > 80) {
+			count += d[r];
+			g[r]++;
+		}
+		else
+			count += g[r];
+		d[r]++;
+	}
+	cout << count;
+}
+
+задача 10
+int main() {
+	int n, a, count = 0, max = 0, z1=0, z2=0;
+	vector<int> arr;
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		cin >> a;
+		arr.push_back(a);
+	}
+	for (int i = 0; i < n; i++) {
+		for (int j = i + 1; j < n; j++) {
+			if (((arr[i] % 17) == 0 || (arr[j] % 17) == 0) && ((arr[i] - arr[j]) % 2 == 0) && arr[i] + arr[j] > max) {
+				max = arr[i] - arr[j];
+				z1 = arr[i];
+				z2 = arr[j];
+			}
+		}
+	}
+	cout << z1 << " "<< z2;
+}
+
+int main() {
+	int n, a, ind2 = 0, indF = 0, z1 = 0, z2 = 0, d[2][2] = {0,0}, pair;
+	vector<int> arr;
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		cin >> a;
+		if (a % 17 == 0) indF = 0;
+		else indF = 1;
+		ind2 = a % 2;
+		pair = d[indF][ind2];
+		if (pair > 0 && pair + a > z1 + z2) {
+			z1 = pair;
+			z2 = a;
+		}
+		d[0][ind2] = max(d[0][ind2], a);
+		d[1][ind2] = max(d[1][ind2], a * (1 - indF));
+	}
+	cout << z1 << " "<< z2;
+}
+
+задача 11
+
+int main() {
+	int n, a, count = 0, max = 0, z1 = 0, z2 = 0;
+	vector<int> arr;
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		cin >> a;
+		arr.push_back(a);
+	}
+	for (int i = 0; i < n; i++) {
+		for (int j = i + 1; j < n; j++) {
+			if ((arr[i] * arr[j]) % 39 == 0 && arr[i] + arr[j]>max) {
+				max = arr[i] + arr[j];
+				z1 = arr[i];
+				z2 = arr[j];
+			}
+		}
+	}
+	cout << z1 << " " << z2;
+}
+
+int main() {
+	int n, a, ind13 = 0, ind3 = 0, z1 = 0, z2 = 0, d[2][2] = { 0,0 }, pair;
+	vector<int> arr;
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		cin >> a;
+		if (a % 13 == 0) ind13 = 0;
+		else ind13 = 1;
+		if (a % 3 == 0) ind3 = 0;
+		else ind3 = 1;
+		pair = d[ind13][ind3];
+		if (pair > 0 && pair + a > z1 + z2) {
+			z1 = pair;
+			z2 = a;
+		}
+		d[0][0] = max(d[0][0], a);
+		d[0][1] = max(d[0][1], a * (1 - ind3));
+		d[1][0] = max(d[1][0], a * (1 - ind13));
+		d[1][1] = max(d[1][1], a * (1 - ind3)*(1-ind13));
+	}
+	cout << z1 << " " << z2;
+}
